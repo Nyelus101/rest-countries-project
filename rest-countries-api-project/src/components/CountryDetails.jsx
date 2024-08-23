@@ -33,8 +33,8 @@ const CountryDetails = () => {
       <div>
         {country && (
           <div className="flex flex-col gap-8">
-            <div className=' w-[90%] rounded-md' >
-              <img src={country.flags.svg} alt={country.name.common} className="w-full h-full object-cover" />
+            <div className=' w-[100%]' >
+              <img src={country.flags.svg} alt={country.name.common} className="w-full h-full object-cover rounded-md" />
             </div>
             <h1 className="text-3xl font-bold">{country.name.common}</h1>
             <div>
@@ -48,6 +48,8 @@ const CountryDetails = () => {
               <p><strong>Top Level Domain:</strong> {country.tld.join(', ')}</p>
               <p><strong>Currencies:</strong> {Object.values(country.currencies).map(c => c.name).join(', ')}</p>
               <p><strong>Languages:</strong> {Object.values(country.languages).join(', ')}</p>
+            </div>
+            <div>
               <p><strong>Border Countries:</strong> {country.borders ? country.borders.join(', ') : 'None'}</p>
             </div>
           </div>
