@@ -184,7 +184,7 @@ const Home = () => {
     <div className='px-[5%]'>
       {/* <Header /> */}
       <main className="pt-[2%] flex flex-col  gap-8">
-        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center space-y-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center space-y-8">
           <form onSubmit={handleSearch} className="flex gap-2">
             <input 
               type="text" 
@@ -208,15 +208,15 @@ const Home = () => {
             <option value="Oceania">Oceania</option>
           </select>
         </div>
-        <div className="flex w-full gap-32 flex-wrap justify-between">
+        <div className=" flex w-full gap-16 my-[24px] mx-0 flex-wrap justify-center sm:justify-between ">
           {filteredCountries.map((country) => (
             <div 
               key={country.cca3} 
               className=" bg-[hsl(0,0%,98%)] shadow-[0_0_5px_1px_rgba(0,0,0,0.2)] rounded-md basis-[250px]"
               onClick={() => navigate(`/country/${country.cca3}`)}
             >
-                <div className='h-[200px] ' >
-                    <img src={country.flags.svg} alt={country.name.common} className=" w-[250px] h-[250px] rounded-sm object-cover" />
+                <div className='h-[150px] ' >
+                    <img src={country.flags.svg} alt={country.name.common} className=" w-full h-[100%] rounded-sm object-cover" />
                 </div> 
                 <div className='p-5' >
                     <h2 className="text-xl font-bold mt-4">{country.name.common}</h2>
@@ -234,6 +234,11 @@ const Home = () => {
 };
 
 export default Home;
+
+
+{/*   w-full gap-32  justify-between grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 */  }
+
+
 
 
 
