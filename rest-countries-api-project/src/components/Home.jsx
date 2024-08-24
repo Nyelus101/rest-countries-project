@@ -181,7 +181,7 @@ const Home = () => {
   };
 
   return (
-    <div className='px-[5%]'>
+    <div className='px-[5%] h-screen'>
       {/* <Header /> */}
       <main className="pt-[2%] flex flex-col  gap-8">
         <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center space-y-8">
@@ -196,10 +196,11 @@ const Home = () => {
             <button type="submit" className="p-2 bg-blue-500 text-white rounded-lg">Search</button>
           </form>
           <select
-            value={region}
+            value="Filter by region"
             onChange={(e) => setRegion(e.target.value)}
             className="border p-2 rounded-lg dark:bg-gray-700 dark:text-white"
           >
+            <option disabled hidden>Filter by region</option>
             <option value="All Countries">All Countries</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
