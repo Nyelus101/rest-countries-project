@@ -35,7 +35,7 @@ const CountryDetails = () => {
   }, [countryCode]);
 
   return (
-    <div className="px-[5%] py-10 h-screen bg-white dark:bg-gray-900 text-black dark:text-white">
+    <div className="px-[5%] py-10  bg-slate-50 dark:bg-gray-900 text-black dark:text-white">
       <button onClick={() => navigate('/')} className="flex items-center gap-2 px-4 py-2 border rounded mb-8 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-black dark:text-white">
         <FaArrowLeftLong size={20} /> Back
       </button>

@@ -8,6 +8,7 @@ const Home = () => {
   const [region, setRegion] = useState('All Countries');
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [error, setError] = useState(''); // New error state
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,25 +51,33 @@ const Home = () => {
           throw new Error("Country not found");
         }
         const data = await response.json();
-        setFilteredCountries(data);
+        
+        if (data.length === 0) {
+          setError('No matching country found. Please enter a valid country name.');
+        } else {
+          setError('');
+          setFilteredCountries(data);
+        }
       } catch (error) {
         console.error("Error fetching the country data", error);
-        setFilteredCountries([]);
+        setError('No matching country found. Please enter a valid country name.');
       }
+    } else {
+      setError('Please enter a country name.');
     }
   };
 
   return (
-    <div className="px-[5%] h-screen bg-white dark:bg-gray-900">
+    <div className="px-[5%] bg-slate-50 dark:bg-gray-900">
       <main className="pt-[2%] flex flex-col gap-8 text-black dark:text-white">
         <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center sm:space-x-8 space-y-8 sm:space-y-0">
-          <form onSubmit={handleSearch} className="relative w-full sm:w-96">
+          <form onSubmit={handleSearch} className="relative w-full sm:w-96 drop-shadow">
             <input 
               type="text" 
               placeholder="Search for a country..." 
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="border p-2 pl-10 rounded-lg w-full sm:w-96 bg-white dark:bg-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+              className="p-2 pl-10 rounded-lg w-full sm:w-96 bg-white dark:bg-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
             />
             <button 
               type="submit" 
@@ -90,6 +99,13 @@ const Home = () => {
             onSelect={(selectedRegion) => setRegion(selectedRegion)}
           />
         </div>
+
+        {/* Display error message if there's no match */}
+        {error && (
+          <div className="text-red-500 mt-4">
+            {error}
+          </div>
+        )}
 
         <div className="flex w-full gap-16 my-[24px] mx-0 flex-wrap justify-center sm:justify-between">
           {filteredCountries.map((country) => (
@@ -116,6 +132,8 @@ const Home = () => {
 };
 
 export default Home;
+
+
 
 
 

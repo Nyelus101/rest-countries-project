@@ -11,16 +11,16 @@ const CustomDropdown = ({ options, onSelect }) => {
   };
 
   return (
-    <div className="relative inline-block w-44">
+    <div className="relative inline-block w-44 drop-shadow">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-black dark:text-white px-4 py-2 rounded-lg flex justify-between items-center"
+        className="w-full  bg-white dark:bg-gray-700  text-black dark:text-white px-4 py-2 rounded-lg flex justify-between items-center"
       >
         Filter by region
         {isOpen ? <MdKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}
       </button>
       {isOpen && (
-        <div className="absolute mt-1 w-full border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-10">
+        <div className="absolute mt-1 w-full drop-shadow bg-white dark:bg-gray-700  rounded-lg shadow-lg z-10">
           {options.map((option, index) => (
             <button
               key={index}

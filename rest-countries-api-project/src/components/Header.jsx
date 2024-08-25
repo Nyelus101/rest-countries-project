@@ -7,13 +7,13 @@ const Header = () => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (
-    <header className="py-4 px-[5%] bg-white dark:bg-gray-800 text-black dark:text-white flex justify-between items-center shadow-md">
+    <header className="drop-shadow-sm py-4 px-[5%] bg-white dark:bg-gray-800 text-black dark:text-white flex justify-between items-center">
       <h1 className="text-xl font-bold">Where in the World?</h1>
       <button 
         onClick={toggleDarkMode} 
         className="flex items-center gap-2 p-2 rounded-full border border-gray-300 dark:border-gray-600 focus:outline-none"
       >
-        {darkMode ? <IoMoonSharp /> : <IoMoonOutline /> }
+        {darkMode ? <IoMoonSharp /> : <IoMoonSharp /> }
         <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
       </button>
     </header>
